@@ -22,11 +22,22 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ .beat {
+   height: 50px;
+   width: 50px;
+   background-color: #698fa4;
+   border-radius: 5px;
+   margin: 5px;
+
+ }
+.current-beat {
+  border-color: crimson;
+  border-width: 3px;
+}
+.selected-beat {
+  background-color: #f9f4b0;
+}
+
+.inline {
+  display: inline-block;
 }
