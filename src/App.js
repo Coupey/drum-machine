@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div class="beatgrid">
+          <div className="beat-grid">
             <div className="beat inline current-beat"></div>
             <div className="beat inline"></div>
             <div className="beat inline selected-beat"></div>

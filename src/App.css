@@ -16,6 +16,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
 }
 
 .App-link {
@@ -26,13 +27,20 @@
    height: 50px;
    width: 50px;
    background-color: #698fa4;
-   border-radius: 5px;
+   border-radius: 8px;
    margin: 5px;
-
  }
+
+ .beat-grid {
+   display: flex;
+   align-items: center;
+   justify-content: center
+ }
+
 .current-beat {
-  border-color: crimson;
+  border-color: #b848dc;
   border-width: 3px;
+  border-style: solid;
 }
 .selected-beat {
   background-color: #f9f4b0;
