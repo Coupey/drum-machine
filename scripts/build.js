@@ -14,7 +14,6 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env');
 
-npm i sass-loader node-sass — save
 const path = require('path');
 const chalk = require('chalk');
 const fs = require('fs-extra');
