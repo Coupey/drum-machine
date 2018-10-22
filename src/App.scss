@@ -1,3 +1,7 @@
+$beatColor: #698fa4;
+$currentBeatColor: #b848dc;
+$selectedBeatColor: #f9f4b0;
+
 .App {
   text-align: center;
 }
@@ -26,7 +30,7 @@
  .beat {
    height: 50px;
    width: 50px;
-   background-color: #698fa4;
+   background-color: $beatColor;
    border-radius: 8px;
    margin: 5px;
  }
@@ -38,12 +42,12 @@
  }
 
 .current-beat {
-  border-color: #b848dc;
+  border-color: $currentBeatColor;
   border-width: 3px;
   border-style: solid;
 }
 .selected-beat {
-  background-color: #f9f4b0;
+  background-color: $selectedBeatColor;
 }
 
 .inline {
