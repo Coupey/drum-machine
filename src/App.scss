@@ -11,7 +11,7 @@ $selectedBeatColor: #f9f4b0;
   height: 40vmin;
 }
 
-.App-header {
+.App-body {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -33,6 +33,7 @@ $selectedBeatColor: #f9f4b0;
    background-color: $beatColor;
    border-radius: 8px;
    margin: 5px;
+   cursor: pointer;
  }
 
  .beat-grid {

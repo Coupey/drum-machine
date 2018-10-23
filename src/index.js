@@ -4,10 +4,6 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-let bpm = 120;
-let beatDivisions = 16;
-let bpmDelay = Math.floor(60000 / bpm);
-
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
