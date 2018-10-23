@@ -19,7 +19,9 @@ class Beat extends Component {
   render() {
     return (
       <div
-        className = {'beat inline ' + (this.state.selected ? 'selected-beat': '')}
+        className = {'beat inline '
+        + (this.state.selected ? 'selected-beat': '') + ' '
+        + (this.props.currentBeat ? 'current-beat': '')}
         onClick={this.onClick}>
       </div>
     )

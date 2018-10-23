@@ -10,16 +10,33 @@ class App extends Component {
     super(props);
     this.state = {
       bpm: 120,
-      beatDivisions: 16
+      beatDivisions: 16,
+      currentBeat: 0
     };
   }
 
+  updateBeat = () => {
+    console.log('beat!');
+    if (this.state.currentBeat === this.state.beatDivisions){
+      this.setState({currentBeat: 0});
+    }
+    this.setState({ currentBeat: this.state.currentBeat + 1});
+  };
+
+  startMachine = () => {
+    this.setState({currentBeat: 1});
+    setInterval(this.updateBeat, bpmDelay);
+  };
+
+
+
   render() {
     let beatsHolder = [];
-    for(let i=0; i<this.state.beatDivisions; i++) {
-      const myKey = 'beat' + (i+1);
+    for(let i=1; i<=this.state.beatDivisions; i++) {
+      const myKey = 'beat' + i;
+      const currentBeat = (this.state.currentBeat === i);
       beatsHolder.push(
-        (<Beat key={myKey} beatId={myKey}/>)
+        (<Beat key={myKey} beatId={myKey} currentBeat={currentBeat}/>)
       );
     }
 
@@ -30,6 +47,7 @@ class App extends Component {
             {beatsHolder}
           </div>
         </div>
+        <div onClick={this.startMachine}>Start!</div>
       </div>
     );
   }
