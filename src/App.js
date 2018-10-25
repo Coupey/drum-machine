@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Beat from './components/beat';
 import './App.scss';
+import kickdrum from './sounds/kick-electro01.mp3';
+import snaredrum from './sounds/snare-808.mp3';
+import hihat from './sounds/hihat-808.mp3';
 
 class App extends Component {
   constructor(props) {
@@ -19,6 +22,7 @@ class App extends Component {
 
   updateBeat = () => {
     console.log('beat ' + this.state.currentBeat);
+
     if (this.state.currentBeat === this.state.beatDivisions){
       this.setState({currentBeat: 0});
     }
@@ -38,17 +42,31 @@ class App extends Component {
 
   render() {
     let beatsHolder = [];
+    let beatsHolder2 = [];
+    let beatsHolder3 = [];
     for(let i=1; i<=this.state.beatDivisions; i++) {
       const myKey = 'beat' + i;
       const currentBeat = (this.state.currentBeat === i);
       beatsHolder.push(
-        (<Beat key={myKey} beatId={myKey} currentBeat={currentBeat}/>)
+        (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={kickdrum} />)
       );
+        beatsHolder2.push(
+            (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={snaredrum} />)
+        );
+        beatsHolder3.push(
+            (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={hihat} />)
+        );
     }
 
     return (
       <div className="App">
         <div className="App-body">
+          <div className="beat-grid">
+            {beatsHolder3}
+          </div>
+          <div className="beat-grid">
+            {beatsHolder2}
+          </div>
           <div className="beat-grid">
             {beatsHolder}
           </div>
