@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import Beat from './components/beat';
 import './App.scss';
 
-let bpm = 100;
-let bpmDelay = Math.floor(60000 / bpm / 4);
-let myTimer;
-
 class App extends Component {
   constructor(props) {
     super(props);
+    const bpm = 100;
+    const bpmDelay = Math.floor(60000 / bpm / 4);
+    let myTimer;
 
     this.state = {
       bpm,
+      bpmDelay,
       beatDivisions: 16,
       currentBeat: 0
     };
   }
 
   updateBeat = () => {
-    console.log('beat!');
+    console.log('beat ' + this.state.currentBeat);
     if (this.state.currentBeat === this.state.beatDivisions){
       this.setState({currentBeat: 0});
     }
@@ -28,12 +28,12 @@ class App extends Component {
   startMachine = () => {
     this.stopMachine();
     this.setState({currentBeat: 1});
-    myTimer = setInterval(this.updateBeat, bpmDelay);
+    this.myTimer = setInterval(this.updateBeat, this.state.bpmDelay);
   };
 
   stopMachine = () => {
     this.setState({currentBeat: 0});
-    clearInterval(myTimer);
+    clearInterval(this.myTimer);
   };
 
   render() {

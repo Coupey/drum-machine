@@ -9,7 +9,7 @@ class Beat extends Component {
   }
 
   onClick = () => {
-    console.log('hello' + this.props.beatId);
+    console.log('Toggling beat ' + this.props.beatId);
     this.setState({
       selected: !this.state.selected
     }, () => {

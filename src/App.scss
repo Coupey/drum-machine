@@ -51,8 +51,12 @@ $selectedBeatColor: #f9f4b0;
 }
 .selected-beat {
   background-color: $selectedBeatColor;
+  box-shadow: 0 0 10px rgba(255,255,255,0.7);
+  transition: background-color 0.1s ease-in;
+
 }
 
 .inline {
   display: inline-block;
 }
+
