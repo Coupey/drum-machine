@@ -1,5 +1,5 @@
 $beatColor: #698fa4;
-$currentBeatColor: #b848dc;
+$currentBeatColor: #87dc74;
 $selectedBeatColor: #f9f4b0;
 
 .App {
@@ -46,6 +46,8 @@ $selectedBeatColor: #f9f4b0;
   border-color: $currentBeatColor;
   border-width: 3px;
   border-style: solid;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 .selected-beat {
   background-color: $selectedBeatColor;

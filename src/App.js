@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import Beat from './components/beat';
 import './App.scss';
 
-let bpm = 120;
-let bpmDelay = Math.floor(60000 / bpm);
+let bpm = 100;
+let bpmDelay = Math.floor(60000 / bpm / 4);
+let myTimer;
 
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      bpm: 120,
+      bpm,
       beatDivisions: 16,
       currentBeat: 0
     };
@@ -24,11 +26,15 @@ class App extends Component {
   };
 
   startMachine = () => {
+    this.stopMachine();
     this.setState({currentBeat: 1});
-    setInterval(this.updateBeat, bpmDelay);
+    myTimer = setInterval(this.updateBeat, bpmDelay);
   };
 
-
+  stopMachine = () => {
+    this.setState({currentBeat: 0});
+    clearInterval(myTimer);
+  };
 
   render() {
     let beatsHolder = [];
@@ -46,8 +52,9 @@ class App extends Component {
           <div className="beat-grid">
             {beatsHolder}
           </div>
+          <div onClick={this.startMachine}>Start!</div>
+          <div onClick={this.stopMachine}>Stop!</div>
         </div>
-        <div onClick={this.startMachine}>Start!</div>
       </div>
     );
   }

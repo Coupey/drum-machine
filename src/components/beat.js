@@ -12,8 +12,9 @@ class Beat extends Component {
     console.log('hello' + this.props.beatId);
     this.setState({
       selected: !this.state.selected
+    }, () => {
+      console.log(this.state.selected);
     });
-    console.log(this.state.selected);
   };
 
   render() {
