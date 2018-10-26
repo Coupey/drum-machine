@@ -8,7 +8,7 @@ import hihat from './sounds/hihat-808.mp3';
 class App extends Component {
   constructor(props) {
     super(props);
-    const bpm = 100;
+    const bpm = 110;
     const bpmDelay = Math.floor(60000 / bpm / 4);
     let myTimer;
 
@@ -70,8 +70,10 @@ class App extends Component {
           <div className="beat-grid">
             {beatsHolder}
           </div>
-          <div onClick={this.startMachine}>Start!</div>
-          <div onClick={this.stopMachine}>Stop!</div>
+          <div className="controls">
+          <button onClick={this.startMachine}>Start</button>
+          <button onClick={this.stopMachine}>Stop</button>
+          </div>
         </div>
       </div>
     );

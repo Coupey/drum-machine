@@ -28,8 +28,8 @@ $selectedBeatColor: #f9f4b0;
 }
 
  .beat {
-   height: 50px;
-   width: 50px;
+   height: 40px;
+   width: 40px;
    background-color: $beatColor;
    border-radius: 8px;
    margin: 5px;
@@ -39,15 +39,15 @@ $selectedBeatColor: #f9f4b0;
  .beat-grid {
    display: flex;
    align-items: center;
-   justify-content: center
+   justify-content: center;
+   max-width: 100%
  }
 
 .current-beat {
   border-color: $currentBeatColor;
   border-width: 3px;
   border-style: solid;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin: 2px;
 }
 .selected-beat {
   background-color: $selectedBeatColor;
@@ -60,3 +60,16 @@ $selectedBeatColor: #f9f4b0;
   display: inline-block;
 }
 
+.controls button {
+  border: none;
+  background: #00bb39;
+  border-radius: 3;
+  cursor: pointer;
+  color: #fff;
+  padding: 10px;
+  max-width: 85%;
+  font-size: 0.8em;
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px;
+}
