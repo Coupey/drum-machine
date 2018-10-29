@@ -36,6 +36,10 @@ $selectedBeatColor: #f9f4b0;
    cursor: pointer;
  }
 
+.beat:nth-child(4n+1){
+  background-color: lighten( $beatColor, 20% );
+}
+
  .beat-grid {
    display: flex;
    align-items: center;
@@ -53,7 +57,10 @@ $selectedBeatColor: #f9f4b0;
   background-color: $selectedBeatColor;
   box-shadow: 0 0 10px rgba(255,255,255,0.7);
   transition: background-color 0.1s ease-in;
+}
 
+.selected-beat:nth-child(4n+1){
+  background-color: lighten( $selectedBeatColor, 20% );
 }
 
 .inline {
