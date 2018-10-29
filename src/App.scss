@@ -1,6 +1,11 @@
 $beatColor: #698fa4;
 $currentBeatColor: #87dc74;
 $selectedBeatColor: #f9f4b0;
+$baseFontSize: 16px;
+
+body{
+  font-size:$baseFontSize;
+}
 
 .App {
   text-align: center;
@@ -18,7 +23,7 @@ $selectedBeatColor: #f9f4b0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: $baseFontSize;
   color: white;
 
 }
@@ -86,4 +91,5 @@ $selectedBeatColor: #f9f4b0;
   min-width: 60px;
   text-align: right;
   margin-right: 10px;
+  max-width: 60px;
 }

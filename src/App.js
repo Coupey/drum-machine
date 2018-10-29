@@ -47,14 +47,15 @@ class App extends Component {
     for(let i=1; i<=this.state.beatDivisions; i++) {
       const myKey = 'beat' + i;
       const currentBeat = (this.state.currentBeat === i);
+      const keyBeat = ((i+3) % 4 === 0);
       beatsHolder.push(
-        (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={kickdrum} />)
+        (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={kickdrum} keyBeat={keyBeat} />)
       );
         beatsHolder2.push(
-            (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={snaredrum} />)
+            (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={snaredrum} keyBeat={keyBeat} />)
         );
         beatsHolder3.push(
-            (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={hihat} />)
+            (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={hihat} keyBeat={keyBeat} />)
         );
     }
 
