@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   updateBeat = () => {
-    console.log('beat ' + this.state.currentBeat);
+    // console.log('beat ' + this.state.currentBeat);
 
     if (this.state.currentBeat === this.state.beatDivisions){
       this.setState({currentBeat: 0});
@@ -62,13 +62,13 @@ class App extends Component {
       <div className="App">
         <div className="App-body">
           <div className="beat-grid">
-            {beatsHolder3}
+            <span className="row-label">Hat</span>{beatsHolder3}
           </div>
           <div className="beat-grid">
-            {beatsHolder2}
+            <span className="row-label">Snare</span>{beatsHolder2}
           </div>
           <div className="beat-grid">
-            {beatsHolder}
+            <span className="row-label">Kick</span>{beatsHolder}
           </div>
           <div className="controls">
           <button onClick={this.startMachine}>Start</button>

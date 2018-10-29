@@ -36,7 +36,7 @@ $selectedBeatColor: #f9f4b0;
    cursor: pointer;
  }
 
-.beat:nth-child(4n+1){
+.beat:nth-child(4n+2){
   background-color: lighten( $beatColor, 20% );
 }
 
@@ -59,7 +59,7 @@ $selectedBeatColor: #f9f4b0;
   transition: background-color 0.1s ease-in;
 }
 
-.selected-beat:nth-child(4n+1){
+.selected-beat:nth-child(4n+2){
   background-color: lighten( $selectedBeatColor, 20% );
 }
 
@@ -79,4 +79,10 @@ $selectedBeatColor: #f9f4b0;
   text-decoration: none;
   display: inline-block;
   margin: 5px;
+}
+
+.row-label {
+  min-width: 60px;
+  text-align: right;
+  margin-right: 10px;
 }
