@@ -12,6 +12,8 @@ class App extends Component {
     const bpmDelay = Math.floor(60000 / bpm / 4);
     let myTimer;
 
+    this.preloadAudio([kickdrum, snaredrum, hihat]);
+
     this.state = {
       bpm,
       bpmDelay,
@@ -19,6 +21,14 @@ class App extends Component {
       currentBeat: 0
     };
   }
+
+  preloadAudio = (soundfiles) => {
+    for (const s of soundfiles) {
+      let audio = new Audio();
+      audio.addEventListener('canplaythrough', console.log('audio loaded'), false);
+      audio.src = s;
+    }
+  };
 
   updateBeat = () => {
     // console.log('beat ' + this.state.currentBeat);
