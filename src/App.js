@@ -10,7 +10,6 @@ class App extends Component {
     super(props);
     const bpm = 110;
     const bpmDelay = Math.floor(60000 / bpm / 4);
-    let myTimer;
 
     this.preloadAudio([kickdrum, snaredrum, hihat]);
 
@@ -18,7 +17,12 @@ class App extends Component {
       bpm,
       bpmDelay,
       beatDivisions: 16,
-      currentBeat: 0
+      currentBeat: 0,
+      config: [
+        { soundfile: hihat, soundtype: 'rhythm', label: 'Hi Hat'},
+        { soundfile: snaredrum, soundtype: 'rhythm', label: 'Snare' },
+        { soundfile: kickdrum, soundtype: 'rhythm', label: 'Kick' }
+      ]
     };
   }
 
@@ -45,50 +49,77 @@ class App extends Component {
     this.myTimer = setInterval(this.updateBeat, this.state.bpmDelay);
   };
 
+
+
   stopMachine = () => {
     this.setState({currentBeat: 0});
     clearInterval(this.myTimer);
   };
 
+  returnLabel = (instrument) => {
+    return this.state.config[instrument].label;
+  };
+
   render() {
-    let beatsHolder = [];
-    let beatsHolder2 = [];
-    let beatsHolder3 = [];
+
+    let masterBeatsHolder = [[],[],[]];
+
     for(let i=1; i<=this.state.beatDivisions; i++) {
       const myKey = 'beat' + i;
       const currentBeat = (this.state.currentBeat === i);
-      const keyBeat = ((i+3) % 4 === 0);
-      beatsHolder.push(
-        (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={kickdrum} keyBeat={keyBeat} />)
-      );
-        beatsHolder2.push(
-            (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={snaredrum} keyBeat={keyBeat} />)
-        );
-        beatsHolder3.push(
-            (<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={hihat} keyBeat={keyBeat} />)
-        );
+      const keyBeat = ((i-1) % 4 === 0);
+
+        for (let j=0;  j<this.state.config.length; j++) {
+          const soundfile = this.state.config[j].soundfile;
+          masterBeatsHolder[j].push((<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={soundfile} keyBeat={keyBeat} />));
+        }
     }
 
     return (
       <div className="App">
         <div className="App-body">
-          <div className="beat-grid">
-            <span className="row-label">Hat</span>{beatsHolder3}
-          </div>
-          <div className="beat-grid">
-            <span className="row-label">Snare</span>{beatsHolder2}
-          </div>
-          <div className="beat-grid">
-            <span className="row-label">Kick</span>{beatsHolder}
-          </div>
+          <BeatRow sounds={this.state.config} beatDivisions={this.state.beatDivisions} currentBeat={this.state.currentBeat} />
+            {masterBeatsHolder.map((beatsRow, index) =>
+              <div className="beat-grid">
+               <span className="row-label">{this.returnLabel(index)}</span>{beatsRow}
+            </div>
+            )}
           <div className="controls">
-          <button onClick={this.startMachine}>Start</button>
+          <button onClick={this.startMachine}>Play</button>
           <button onClick={this.stopMachine}>Stop</button>
           </div>
         </div>
       </div>
     );
   }
+}
+
+class BeatRow extends Component {
+  constructor(props) {
+    super(props);
+
+    // console.log(props);
+    this.state = {
+      'beatsHolder': {}
+    }
+
+  }
+
+  render() {
+
+    for (const thisSound of this.props.sounds) {
+      for(let i=1; i<=this.props.beatDivisions; i++) {
+        const myKey = 'beat' + i;
+        const currentBeat = (this.props.currentBeat === i);
+        const keyBeat = ((i-1) % 4 === 0);
+      }
+    }
+
+    return (
+      <div>{this.beatsHolder}</div>
+    )
+  }
+
 }
 
 export default App;
