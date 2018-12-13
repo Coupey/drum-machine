@@ -71,7 +71,8 @@ class App extends Component {
 
         for (let j=0;  j<this.state.config.length; j++) {
           const soundfile = this.state.config[j].soundfile;
-          masterBeatsHolder[j].push((<Beat key={myKey} beatId={i} currentBeat={currentBeat} soundfile={soundfile} keyBeat={keyBeat} />));
+          const thisKey = myKey + '_' + j;
+          masterBeatsHolder[j].push((<Beat key={thisKey} beatId={i} currentBeat={currentBeat} soundfile={soundfile} keyBeat={keyBeat} />));
         }
     }
 
@@ -80,7 +81,7 @@ class App extends Component {
         <div className="App-body">
           <BeatRow sounds={this.state.config} beatDivisions={this.state.beatDivisions} currentBeat={this.state.currentBeat} />
             {masterBeatsHolder.map((beatsRow, index) =>
-              <div className="beat-grid">
+              <div key={this.index} className="beat-grid">
                <span className="row-label">{this.returnLabel(index)}</span>{beatsRow}
             </div>
             )}
